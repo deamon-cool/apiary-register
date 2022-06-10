@@ -1,0 +1,16 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "test": "test",
+    "devstart": "nodemon ./api.js",
+    "start": "node ./api.js"
+  },
+  "author": "Damian Ciesielski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
