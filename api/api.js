@@ -7,6 +7,8 @@ const config = require('./config/config.json');
 const addNewApiaryController = require('./controllers/addNewApiaryController');
 const getApiariesController = require('./controllers/getApiariesController');
 
+const apiaryValidation = require('./middlewares/apiaryValidation');
+
 mongoose.connect(config.MONGO_PATH, { useNewUrlParser: true, useUnifiedTopology: true });
 const database = mongoose.connection;
 database.once('open', () => {
@@ -17,7 +19,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../build')));
 
-app.put('/api/add-new-apiary', addNewApiaryController);
+app.put('/api/add-new-apiary', apiaryValidation, addNewApiaryController);
 
 app.get('/api/get-apiaries', getApiariesController);
 
