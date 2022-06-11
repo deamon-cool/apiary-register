@@ -1,9 +1,17 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+
 const config = require('./config/config.json');
 
 const addNewApiaryController = require('./controllers/addNewApiaryController');
 const getApiariesController = require('./controllers/getApiariesController');
+
+mongoose.connect(config.MONGO_PATH, { useNewUrlParser: true, useUnifiedTopology: true });
+const database = mongoose.connection;
+database.once('open', () => {
+  console.log('Connected to database.');
+});
 
 const app = express();
 app.use(express.json());
