@@ -11,8 +11,8 @@ function App() {
     <div className={classes.App}>
       <Navbar />
       <Container>
-        <ImageButton title='Nowa pasieka' imageSrc={newApiaryImage} customStyle={{margin: '20px'}}/>
-        <ImageButton title='Lista pasiek' imageSrc={apiaryListImage} customStyle={{margin: '20px'}}/>
+        <ImageButton title='Nowa pasieka' imageSrc={newApiaryImage} customStyle={{margin: '10px'}}/>
+        <ImageButton title='Lista pasiek' imageSrc={apiaryListImage} customStyle={{margin: '10px'}}/>
       </Container>
     </div>
   );
