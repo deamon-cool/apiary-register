@@ -1,37 +1,20 @@
-class Apiary {
-  #name;
-  #date;
-  #apiaryNumber;
+const mongoose = require('mongoose');
 
-  constructor(name, date, apiaryNumber) {
-    this.#name = name;
-    this.#date = date;
-    this.#apiaryNumber = apiaryNumber;
+const ApiarySchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: String,
+    required: true
+  },
+  apiaryNumber: {
+    type: Number,
+    required: true
   }
+});
 
-  get name() {
-    return this.#name;
-  }
-
-  set name(name) {
-    this.#name = name;
-  }
-
-  get date() {
-    return this.#date;
-  }
-
-  set date(date) {
-    this.#date = date;
-  }
-
-  get apiaryNumber() {
-    return this.#apiaryNumber;
-  }
-  
-  set apiaryNumber(apiaryNumber) {
-    this.#apiaryNumber = apiaryNumber;
-  }
-}
+const Apiary = mongoose.model('Apiaries', ApiarySchema);
 
 module.exports = Apiary;
