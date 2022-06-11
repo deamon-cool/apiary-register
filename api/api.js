@@ -6,6 +6,7 @@ const addNewApiaryController = require('./controllers/addNewApiaryController');
 const getApiariesController = require('./controllers/getApiariesController');
 
 const app = express();
+app.use(express.json());
 app.use(express.static(path.join(__dirname, '../build')));
 
 app.put('/api/add-new-apiary', addNewApiaryController);
