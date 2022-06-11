@@ -1,14 +1,14 @@
 const Apiary = require('../database/Apiary/Apiary');
 
-let apiaries = [];
-
-module.exports.apiaries = apiaries;
-
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   try {
     const { name, date, apiaryNumber } = req.body;
 
-    apiaries.push(new Apiary(name, date, apiaryNumber));
+    await Apiary.create({
+      name: name,
+      date: date,
+      apiaryNumber: apiaryNumber
+    });
 
     res.status(200).send({ info: 'Dodano pasiekę.' });
   } catch (err) {
