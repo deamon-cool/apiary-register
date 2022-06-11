@@ -1,0 +1,25 @@
+.ImageButton {
+  display: block;
+  width: 200px;
+  background-color: rgb(255, 236, 131);
+  border: 3px solid orange;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ImageButton:hover {
+  background-color: rgb(255, 247, 199);
+}
+
+.ImageButton h3 {
+  font-size: 22px;
+  text-align: center;
+  color: rgb(230, 149, 0);
+}
+
+.ImageButton img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 10px auto;
+}
