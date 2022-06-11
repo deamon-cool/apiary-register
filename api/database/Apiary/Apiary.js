@@ -34,4 +34,4 @@ class Apiary {
   }
 }
 
-export default Apiary;
+module.exports.Apiary = Apiary;
