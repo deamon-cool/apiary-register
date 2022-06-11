@@ -2,6 +2,8 @@ const Apiary = require('../database/Apiary/Apiary');
 
 let apiaries = [];
 
+module.exports.apiaries = apiaries;
+
 module.exports = (req, res) => {
   try {
     const { name, date, apiaryNumber } = req.body;
