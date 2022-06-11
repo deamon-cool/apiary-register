@@ -10,7 +10,7 @@ module.exports = (req, res) => {
 
     apiaries.push(new Apiary(name, date, apiaryNumber));
 
-    res.status.status(200).send({ info: 'Dodano pasiekę.' });
+    res.status(200).send({ info: 'Dodano pasiekę.' });
   } catch (err) {
     console.log(Date() + ' an error has occured \n' + err);
     return res.status(500).send({ error: 'Błąd api. Przepraszamy.' });
