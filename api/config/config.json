@@ -1,3 +1,4 @@
 {
-  "API_PORT": 9000
+  "API_PORT": 9000,
+  "MONGO_PATH": "mongodb://localhost/apiary-register"
 }
