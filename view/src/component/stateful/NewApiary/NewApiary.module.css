@@ -1,0 +1,11 @@
+.NewApiary {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  align-content: center;
+}
+
+.NewApiary form fieldset {
+  display: flex;
+  flex-direction: column;
+}
