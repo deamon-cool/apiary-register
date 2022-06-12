@@ -16,7 +16,7 @@ export default function NewApiary() {
         </fieldset>
         <fieldset>
           <label>Numer pasieki</label>
-          2022-06-12<input />789
+          20220612<input />789
         </fieldset>
 
         <button>Zapisz</button>
