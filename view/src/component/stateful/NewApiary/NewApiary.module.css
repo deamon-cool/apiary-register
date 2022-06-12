@@ -2,10 +2,36 @@
   display: flex;
   flex-direction: column;
   padding-top: 20px;
-  align-content: center;
+  align-items: center;
+}
+
+.NewApiary h2 {
+  font-size: 24px;
+  color: rgb(230, 149, 0);
+  margin: 0 0 10px 0;
+}
+
+.NewApiary hr {
+  width: 250px;
+  border: 2px solid orange;
+  border-radius: 10px;
+  margin-bottom: 25px;
 }
 
 .NewApiary form fieldset {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  border: none;
+}
+
+.NewApiary form fieldset label {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(230, 149, 0);
+  margin-bottom: 5px;
+}
+
+.NewApiary form fieldset div {
+  flex-direction: row;
 }
