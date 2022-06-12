@@ -1,6 +1,6 @@
 const Apiary = require('../database/Apiary/Apiary');
 
-const dateTester = /^\d\d\-\d\d\-\d\d\d\d$/;
+const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 
 module.exports = async (req, res, next) => {
   try {
@@ -20,9 +20,9 @@ module.exports = async (req, res, next) => {
     }
 
     const splitedDateArr = date.split('-');
-    const day = parseInt(splitedDateArr[0]);
+    const year = parseInt(splitedDateArr[0]);
     const month = parseInt(splitedDateArr[1]);
-    const year = parseInt(splitedDateArr[2]);
+    const day = parseInt(splitedDateArr[2]);
 
     let monthDuration = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if (year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0)) {
