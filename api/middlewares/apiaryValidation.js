@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
     }
 
     if (!dateTester.test(date)) {
-      return res.status(400).send({ error: 'Nieprawidłowy format daty.' });
+      return res.status(400).send({ error: 'Nieprawidłowy format daty (YYYY-MM-DD).' });
     }
 
     const splitedDateArr = date.split('-');
