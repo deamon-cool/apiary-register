@@ -22,7 +22,8 @@ export default function NewApiary() {
     userApiaryNumberError: ''
   });
 
-  const dateValue = customDate.split('-').join('');
+  const dateValue = customDate.split('-').join('').length !== 8 ?
+    '' : customDate.split('-').join('');
   const controlSum = calculateControlSum(dateValue, userApiaryNumber);
 
   const nameHandler = (name) => {
