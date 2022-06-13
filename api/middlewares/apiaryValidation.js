@@ -36,7 +36,7 @@ module.exports = async (req, res, next) => {
     if (day > monthDuration[month - 1] || day < 1 ||
       month > 12 || month < 1 ||
       year > (new Date()).getFullYear()) {
-      return res.status(400).send({ error: 'Nieprawidłowy format daty.' });
+      return res.status(400).send({ error: 'Nieprawidłowa data. Sprawdź dokładnie rok, miesiąc i dzień.' });
     }
 
     const apiaryNumberStr = apiaryNumber.toString();
