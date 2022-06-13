@@ -14,6 +14,7 @@ import calculateControlSum from '../../../functions/calculateControlSum';
 
 const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
+const userApiaryNumberLength = 5;
 
 export default function NewApiary() {
   const [warning, setWarning] = useState('');
