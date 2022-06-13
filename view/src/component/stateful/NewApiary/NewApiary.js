@@ -6,6 +6,9 @@ import Button from '../../stateless/Button/Button';
 
 
 export default function NewApiary() {
+  const [apiaryName, setApiaryName] = useState('');
+  const [date, setDate] = useState(getDateString());
+  const [userApiaryNumber, setUserApiaryNumber] = useState('');
 
   return (
     <div className={classes.NewApiary}>
