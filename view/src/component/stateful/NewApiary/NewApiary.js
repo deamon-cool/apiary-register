@@ -38,7 +38,15 @@ export default function NewApiary() {
 
   const nameHandler = (name) => {
     if (name.length > 100) {
-      // handle error input
+      setInputErrors(state => ({
+        ...state,
+        nameError: 'Nazwa jest za długa.'
+      }));
+    } else {
+      setInputErrors(state => ({
+        ...state,
+        nameError: ''
+      }));
     }
 
     setApiaryName(name);
@@ -46,7 +54,15 @@ export default function NewApiary() {
 
   const dateHandler = (dateString) => {
     if (!dateTester.test(dateString)) {
-      // handle error input
+      setInputErrors(state => ({
+        ...state,
+        dateError: 'Nieprawidłowy format daty (YYYY-MM-DD).'
+      }));
+    } else {
+      setInputErrors(state => ({
+        ...state,
+        dateError: ''
+      }));
     }
 
     setDate(dateString);
@@ -54,7 +70,15 @@ export default function NewApiary() {
 
   const userApiaryNumberHandler = (apiaryNumberStr) => {
     if (!apiaryNumberTester.test(apiaryNumberStr)) {
-      // handle error input
+      setInputErrors(state => ({
+        ...state,
+        userApiaryNumberError: 'Nieprawidłowy format numeru pasieki (NNNNN).'
+      }));
+    } else {
+      setInputErrors(state => ({
+        ...state,
+        userApiaryNumberError: ''
+      }));
     }
     setUserApiaryNumber(apiaryNumberStr);
   }
