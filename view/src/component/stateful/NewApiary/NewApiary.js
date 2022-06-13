@@ -13,7 +13,7 @@ import validateDate from '../../../functions/validateDate';
 import calculateControlSum from '../../../functions/calculateControlSum';
 
 const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
-const apiaryNumberTester = /^\d\d\d\d\d$/;
+const userApiaryNumberTester = /^\d\d\d\d\d$/;
 
 export default function NewApiary() {
   const [warning, setWarning] = useState('');
@@ -63,7 +63,7 @@ export default function NewApiary() {
   }
 
   const userApiaryNumberHandler = (apiaryNumberStr) => {
-    if (!apiaryNumberTester.test(apiaryNumberStr)) {
+    if (!userApiaryNumberTester.test(apiaryNumberStr)) {
       setInputErrors(state => ({
         ...state,
         userApiaryNumberError: 'Nieprawidłowy format numeru (NNNNN).'
