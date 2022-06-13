@@ -23,6 +23,8 @@
   flex-direction: column;
   align-items: center;
   border: none;
+  margin: 20px 0 20px 0;
+  padding: 0;
 }
 
 .NewApiary form fieldset label {
