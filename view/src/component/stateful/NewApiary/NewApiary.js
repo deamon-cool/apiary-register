@@ -31,6 +31,10 @@ export default function NewApiary() {
   }
 
   const nameHandler = (name) => {
+    if (name.length > 100) {
+      // handle error input
+    }
+    
     setApiaryName(name);
   };
 
