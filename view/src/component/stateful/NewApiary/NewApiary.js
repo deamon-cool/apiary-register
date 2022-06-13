@@ -122,7 +122,64 @@ export default function NewApiary() {
   }
 
   const saveHandler = () => {
-    //fetch data
+    if (apiaryName.length < 1) {
+      setInputErrors(state => ({
+        ...state,
+        nameError: 'Wpisz nazwę pasieki.'
+      }));
+
+      return;
+    }
+
+    for (const key in inputErrors) {
+      if (Object.hasOwnProperty.call(inputErrors, key)) {
+        const inputError = inputErrors[key];
+
+        if (inputError !== '') {
+          setWarning('Wypełnij poprawnie dane.');
+          return;
+        }
+      }
+    }
+
+    const dateValue = customDate.split('-').join('');
+    const apiaryNumber = parseInt(
+      [dateValue, userApiaryNumber, calculateControlSum(dateValue, userApiaryNumber)].join('')
+    );
+
+    const data = {
+      name: apiaryName,
+      date: customDate,
+      apiaryNumber: apiaryNumber
+    };
+
+    const init = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    };
+
+    fetch(config.NEW_APIARY_FETCH_URL, init)
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          setWarning(data.error);
+
+          return;
+        }
+
+        if (data.info) {
+          setInfo(data.info);
+
+          return;
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        setWarning('Nie można zapisać danych.');
+      })
   }
 
   const dateValue = customDate.split('-').join('').length !== 8 ?
