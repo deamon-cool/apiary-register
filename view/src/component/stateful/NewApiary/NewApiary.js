@@ -6,6 +6,8 @@ import Button from '../../stateless/Button/Button';
 import ErrorDiv from '../../stateless/ErrorDiv/ErrorDiv';
 import Toastbar from '../../stateless/Toastbar/Toastbar';
 
+import * as config from '../../../config/config';
+
 import getDateString from '../../../functions/getDateString';
 import validateDate from '../../../functions/validateDate';
 import calculateControlSum from '../../../functions/calculateControlSum';
