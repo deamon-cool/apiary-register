@@ -13,7 +13,7 @@ export default function Input(props) {
     <input className={classes.Input}
       style={customStyle}
       onChange={changeHandler}
-      value={value} 
-      disabled={readOnly}/>
+      value={value}
+      disabled={readOnly} />
   );
 }
