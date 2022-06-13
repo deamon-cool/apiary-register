@@ -6,7 +6,9 @@ export default function generateUserApiaryNumber(prevNumberString) {
   const length = numberString.length;
 
   if (length > 5) {
-    number = '00001';
+    numberString = '00001';
+    
+    return numberString;
   }
 
   const amountOfZeros = 5 - length;
