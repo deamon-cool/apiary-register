@@ -42,17 +42,18 @@ export default function NewApiary() {
   };
 
   const dateHandler = (dateString) => {
+    let errorMessage = '';
+
     if (!dateTester.test(dateString)) {
-      setInputErrors(state => ({
-        ...state,
-        dateError: 'Nieprawidłowy format daty (YYYY-MM-DD).'
-      }));
+      errorMessage = 'Nieprawidłowy format daty (YYYY-MM-DD).';
     } else {
-      setInputErrors(state => ({
-        ...state,
-        dateError: ''
-      }));
+      errorMessage = validateDate(dateString);
     }
+
+    setInputErrors(state => ({
+      ...state,
+      dateError: errorMessage
+    }));
 
     setDate(dateString);
   }
