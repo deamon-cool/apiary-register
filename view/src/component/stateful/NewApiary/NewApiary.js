@@ -21,6 +21,7 @@ export default function NewApiary() {
   const [info, setInfo] = useState('');
   const [apiaryName, setApiaryName] = useState('');
   const [customDate, setCustomDate] = useState(getDateString());
+  const [correctCustomDate, setCorrectCustomDate] = useState(getDateString());
   const [userApiaryNumber, setUserApiaryNumber] = useState('00001');
   const [inputErrors, setInputErrors] = useState({
     nameError: '',
@@ -101,6 +102,9 @@ export default function NewApiary() {
     }));
 
     setCustomDate(dateString);
+    if (errorMessage === '') {
+      setCorrectCustomDate(dateString);
+    }    
   }
 
   const userApiaryNumberHandler = (apiaryNumberStr) => {
