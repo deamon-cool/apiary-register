@@ -15,6 +15,10 @@ module.exports = async (req, res, next) => {
       return res.status(400).send({ error: 'Pasieka o tej dacie i tym numerze już istnieje.' });
     }
 
+    if (name.length > 100) {
+      return res.status(400).send({ error: 'Nazwa jest za długa.' });
+    }
+
     if (!dateTester.test(date)) {
       return res.status(400).send({ error: 'Nieprawidłowy format daty.' });
     }
