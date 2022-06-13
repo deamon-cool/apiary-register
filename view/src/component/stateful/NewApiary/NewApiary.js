@@ -11,6 +11,8 @@ export default function NewApiary() {
   const [userApiaryNumber, setUserApiaryNumber] = useState('');
 
   const dateValue = date.split('-').join('');
+  const controlSum = calculateControlSum();
+
   function getDateString() {
     const newDate = new Date();
     const monthString = newDate.getMonth().toString().length === 1 ?
@@ -21,6 +23,11 @@ export default function NewApiary() {
 
     return dateString;
   }
+
+  function calculateControlSum() {
+    return '786';
+  }
+
   return (
     <div className={classes.NewApiary}>
       <h2>Nowa pasieka</h2>
