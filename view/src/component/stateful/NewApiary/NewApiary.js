@@ -11,6 +11,7 @@ import * as config from '../../../config/config';
 import getDateString from '../../../functions/getDateString';
 import validateDate from '../../../functions/validateDate';
 import calculateControlSum from '../../../functions/calculateControlSum';
+import generateUserApiaryNumber from '../../../functions/generateUserApiaryNumber';
 
 const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
@@ -125,11 +126,21 @@ export default function NewApiary() {
         if (data.error) {
           setWarning(data.error);
 
+          if (data.apiaryExist) {
+            setUserApiaryNumber(state => (
+              generateUserApiaryNumber(state)
+            ));
+          }
+
           return;
         }
 
         if (data.info) {
           setInfo(data.info);
+
+          setUserApiaryNumber(state => (
+            generateUserApiaryNumber(state)
+          ));
 
           return;
         }
