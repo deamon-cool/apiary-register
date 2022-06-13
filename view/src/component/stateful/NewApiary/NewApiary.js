@@ -72,7 +72,7 @@ export default function NewApiary() {
     if (!apiaryNumberTester.test(apiaryNumberStr)) {
       setInputErrors(state => ({
         ...state,
-        userApiaryNumberError: 'Nieprawidłowy format numeru pasieki (NNNNN).'
+        userApiaryNumberError: 'Nieprawidłowy format numeru (NNNNN).'
       }));
     } else {
       setInputErrors(state => ({
@@ -80,6 +80,7 @@ export default function NewApiary() {
         userApiaryNumberError: ''
       }));
     }
+
     setUserApiaryNumber(apiaryNumberStr);
   }
 
