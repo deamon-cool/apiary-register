@@ -10,9 +10,9 @@ module.exports = async (req, res, next) => {
       return res.status(400).send({ error: 'Nieprawidłowe dane.' });
     }
 
-    const apiary = await Apiary.findOne({ date: date, apiaryNumber: apiaryNumber });
+    const apiary = await Apiary.findOne({ apiaryNumber: apiaryNumber });
     if (apiary) {
-      return res.status(400).send({ error: 'Pasieka o tej dacie i tym numerze już istnieje.' });
+      return res.status(400).send({ error: 'Pasieka o tym numerze już istnieje.' });
     }
 
     if (name.length < 1) {
