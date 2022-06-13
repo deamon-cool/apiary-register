@@ -14,7 +14,7 @@ const apiaryNumberTester = /^\d\d\d\d\d$/;
 
 export default function NewApiary() {
   const [apiaryName, setApiaryName] = useState('');
-  const [date, setDate] = useState(getDateString());
+  const [customDate, setCustomDate] = useState(getDateString());
   const [userApiaryNumber, setUserApiaryNumber] = useState('');
   const [inputErrors, setInputErrors] = useState({
     nameError: '',
@@ -22,8 +22,8 @@ export default function NewApiary() {
     userApiaryNumberError: ''
   });
 
-  const dateValue = date.split('-').join('');
-  const controlSum = calculateControlSum();
+  const dateValue = customDate.split('-').join('');
+  const controlSum = calculateControlSum(dateValue, userApiaryNumber);
 
   const nameHandler = (name) => {
     if (name.length > 100) {
@@ -55,7 +55,7 @@ export default function NewApiary() {
       dateError: errorMessage
     }));
 
-    setDate(dateString);
+    setCustomDate(dateString);
   }
 
   const userApiaryNumberHandler = (apiaryNumberStr) => {
@@ -94,7 +94,7 @@ export default function NewApiary() {
           <label>Data dodania pasieki</label>
           <Input
             onChangeHandler={dateHandler}
-            value={date} />
+            value={customDate} />
           <ErrorDiv text={inputErrors.dateError} />
         </fieldset>
         <fieldset>
