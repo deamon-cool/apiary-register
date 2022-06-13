@@ -3,9 +3,9 @@ import React, { useEffect } from 'react';
 import * as config from '../../../config/config';
 import Info from './Info/Info';
 import Warning from './Warning/Warning';
-import classes from './ToastBar.module.css';
+import classes from './Toastbar.module.css';
 
-function ToastBar(props) {
+export default function Toastbar(props) {
 	const info = props.info;
 	const warning = props.warning;
 	const infoTimePassed = props.infoTimePassedHandler;
@@ -45,11 +45,9 @@ function ToastBar(props) {
 	}, [warning]);
 
 	return (
-		<div className={classes.ToastBar}>
+		<div className={classes.Toastbar}>
 			{informationElement}
 			{warningElement}
 		</div>
 	);
 }
-
-export default ToastBar;
