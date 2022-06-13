@@ -69,8 +69,6 @@ export default function NewApiary() {
     }
   }, [correctCustomDate]);
 
-  // load data from server, check if under this date exist some apiary
-
   const nameHandler = (name) => {
     if (name.length > 100) {
       setInputErrors(state => ({
@@ -104,7 +102,7 @@ export default function NewApiary() {
     setCustomDate(dateString);
     if (errorMessage === '') {
       setCorrectCustomDate(dateString);
-    }    
+    }
   }
 
   const userApiaryNumberHandler = (apiaryNumberStr) => {
