@@ -4,6 +4,7 @@ import classes from './NewApiary.module.css';
 import Input from '../../stateless/Input/Input';
 import Button from '../../stateless/Button/Button';
 import ErrorDiv from '../../stateless/ErrorDiv/ErrorDiv';
+import Toastbar from '../../stateless/Toastbar/Toastbar';
 
 import getDateString from '../../../functions/getDateString';
 import validateDate from '../../../functions/validateDate';
@@ -13,6 +14,8 @@ const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const apiaryNumberTester = /^\d\d\d\d\d$/;
 
 export default function NewApiary() {
+  const [warning, setWarning] = useState('');
+  const [info, setInfo] = useState('');
   const [apiaryName, setApiaryName] = useState('');
   const [customDate, setCustomDate] = useState(getDateString());
   const [userApiaryNumber, setUserApiaryNumber] = useState('00001');
@@ -83,6 +86,11 @@ export default function NewApiary() {
 
   return (
     <div className={classes.NewApiary}>
+      <Toastbar
+        info={info}
+        warning={warning}
+        infoTimePassedHandler={() => setInfo('')}
+        warningTimePassedHandler={() => setWarning('')} />
       <h2>Nowa pasieka</h2>
       <hr />
       <form>
