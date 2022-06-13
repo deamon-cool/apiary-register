@@ -5,6 +5,10 @@ import Input from '../../stateless/Input/Input';
 import Button from '../../stateless/Button/Button';
 import ErrorDiv from '../../stateless/ErrorDiv/ErrorDiv';
 
+import getDateString from '../../../functions/getDateString';
+import validateDate from '../../../functions/validateDate';
+import calculateControlSum from '../../../functions/calculateControlSum';
+
 const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const apiaryNumberTester = /^\d\d\d\d\d$/;
 
