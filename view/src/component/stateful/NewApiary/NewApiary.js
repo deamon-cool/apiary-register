@@ -30,24 +30,69 @@ export default function NewApiary() {
     return '786';
   }
 
+  const nameHandler = (name) => {
+    setApiaryName(name);
+  };
+
+  const dateHandler = (dateString) => {
+    if (!dateTester.test(dateString)) {
+      // handle error input
+    }
+
+    setDate(dateString);
+  }
+
+  const userApiaryNumberHandler = (apiaryNumberStr) => {
+    if (!apiaryNumberTester.test(apiaryNumberStr)) {
+      // handle error input
+    }
+    setUserApiaryNumber(apiaryNumberStr);
+  }
+
+  const saveHandler = () => {
+
+  }
+
   return (
     <div className={classes.NewApiary}>
       <h2>Nowa pasieka</h2>
+      <hr />
       <form>
         <fieldset>
           <label>Nazwa</label>
-          <input />
+          <Input
+            onChangeHandler={nameHandler}
+            value={apiaryName} />
         </fieldset>
         <fieldset>
-          <label>Wybierz datę</label>
-          <input type='date' />
+          <label>Data dodania pasieki</label>
+          <Input
+            onChangeHandler={dateHandler}
+            value={date} />
         </fieldset>
         <fieldset>
           <label>Numer pasieki</label>
-          20220612<input />789
+          <div>
+            <Input
+              value={dateValue}
+              readOnly={true}
+              customStyle={{ width: '90px' }} />
+            <Input
+              customStyle={{ width: '60px' }}
+              onChangeHandler={userApiaryNumberHandler}
+              value={userApiaryNumber} />
+            <Input
+              value={controlSum}
+              readOnly={true}
+              customStyle={{ width: '40px' }} />
+          </div>
         </fieldset>
-
-        <button>Zapisz</button>
+        <fieldset>
+          <Button
+            onClickHandler={saveHandler}
+            text='Zapisz'
+            customStyle={{ marginTop: '25px' }} />
+        </fieldset>
       </form>
     </div>
   );
