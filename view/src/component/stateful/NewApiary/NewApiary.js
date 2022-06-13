@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import classes from './NewApiary.module.css';
 import Input from '../../stateless/Input/Input';
