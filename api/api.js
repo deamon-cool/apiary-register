@@ -27,4 +27,8 @@ app.get('/api/get-apiaries', getApiariesController);
 
 app.get('/api/apiaries-amount/:date', dateValidation, getApiariesAmountController);
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../view/build', 'index.html'));
+});
+
 app.listen(config.API_PORT, () => console.log('Api runs on: 127.0.0.1:' + config.API_PORT));
