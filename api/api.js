@@ -6,10 +6,8 @@ const config = require('./config/config.json');
 
 const addNewApiaryController = require('./controllers/addNewApiaryController');
 const getApiariesController = require('./controllers/getApiariesController');
-const getApiariesAmountController = require('./controllers/getApiariesAmountController');
 
 const apiaryValidation = require('./middlewares/apiaryValidation');
-const dateValidation = require('./middlewares/dateValidation');
 
 mongoose.connect(config.MONGO_PATH, { useNewUrlParser: true, useUnifiedTopology: true });
 const database = mongoose.connection;
@@ -24,8 +22,6 @@ app.use(express.static(path.join(__dirname, '../view/build')));
 app.put('/api/add-new-apiary', apiaryValidation, addNewApiaryController);
 
 app.get('/api/get-apiaries', getApiariesController);
-
-app.get('/api/apiaries-amount/:date', dateValidation, getApiariesAmountController);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../view/build', 'index.html'));
