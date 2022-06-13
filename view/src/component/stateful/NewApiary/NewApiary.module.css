@@ -35,8 +35,3 @@
 .NewApiary form fieldset div {
   flex-direction: row;
 }
-
-.Error {
-  font-size: 16px;
-  color: red;
-}

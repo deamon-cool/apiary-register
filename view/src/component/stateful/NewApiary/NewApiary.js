@@ -3,6 +3,7 @@ import { useState } from 'react';
 import classes from './NewApiary.module.css';
 import Input from '../../stateless/Input/Input';
 import Button from '../../stateless/Button/Button';
+import ErrorDiv from '../../stateless/ErrorDiv/ErrorDiv';
 
 const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const apiaryNumberTester = /^\d\d\d\d\d$/;
@@ -39,7 +40,7 @@ export default function NewApiary() {
     if (name.length > 100) {
       // handle error input
     }
-    
+
     setApiaryName(name);
   };
 
@@ -72,14 +73,14 @@ export default function NewApiary() {
           <Input
             onChangeHandler={nameHandler}
             value={apiaryName} />
-          <div className={classes.Error}>{inputErrors.nameError}</div>
+          <ErrorDiv text={inputErrors.nameError} />
         </fieldset>
         <fieldset>
           <label>Data dodania pasieki</label>
           <Input
             onChangeHandler={dateHandler}
             value={date} />
-          <div className={classes.Error}>{inputErrors.dateError}</div>
+          <ErrorDiv text={inputErrors.dateError} />
         </fieldset>
         <fieldset>
           <label>Numer pasieki</label>
@@ -97,7 +98,7 @@ export default function NewApiary() {
               readOnly={true}
               customStyle={{ width: '40px' }} />
           </div>
-          <div className={classes.Error}>{inputErrors.userApiaryNumberError}</div>
+          <ErrorDiv text={inputErrors.userApiaryNumberError} />
         </fieldset>
         <fieldset>
           <Button
