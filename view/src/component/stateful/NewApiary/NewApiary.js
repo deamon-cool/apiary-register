@@ -4,6 +4,8 @@ import classes from './NewApiary.module.css';
 import Input from '../../stateless/Input/Input';
 import Button from '../../stateless/Button/Button';
 
+const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
+const apiaryNumberTester = /^\d\d\d\d\d$/;
 
 export default function NewApiary() {
   const [apiaryName, setApiaryName] = useState('');
