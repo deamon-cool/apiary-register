@@ -22,6 +22,8 @@ export default function NewApiary() {
     userApiaryNumberError: ''
   });
 
+  // load data from server, check if under this date exist some apiary
+
   const nameHandler = (name) => {
     if (name.length > 100) {
       setInputErrors(state => ({
@@ -72,7 +74,7 @@ export default function NewApiary() {
   }
 
   const saveHandler = () => {
-
+    //fetch data
   }
 
   const dateValue = customDate.split('-').join('').length !== 8 ?
