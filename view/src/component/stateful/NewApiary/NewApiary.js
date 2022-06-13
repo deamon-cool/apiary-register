@@ -45,6 +45,10 @@ export default function NewApiary() {
   };
 
   const dateHandler = (dateString) => {
+    if (dateString.length > 10) {
+      return;
+    }
+
     let errorMessage = '';
 
     if (!dateTester.test(dateString)) {
@@ -63,6 +67,10 @@ export default function NewApiary() {
   }
 
   const userApiaryNumberHandler = (apiaryNumberStr) => {
+    if (apiaryNumberStr.length > 5 || isNaN(apiaryNumberStr)) {
+      return;
+    }
+
     if (!userApiaryNumberTester.test(apiaryNumberStr)) {
       setInputErrors(state => ({
         ...state,
