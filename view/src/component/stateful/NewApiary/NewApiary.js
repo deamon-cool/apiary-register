@@ -59,9 +59,6 @@ export default function NewApiary() {
     }));
 
     setCustomDate(dateString);
-    if (errorMessage === '') {
-      setCorrectCustomDate(dateString);
-    }
   }
 
   const userApiaryNumberHandler = (apiaryNumberStr) => {
