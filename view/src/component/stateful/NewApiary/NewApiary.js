@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
 import classes from './NewApiary.module.css';
+import Input from '../../stateless/Input/Input';
+import Button from '../../stateless/Button/Button';
+
 
 export default function NewApiary() {
 
