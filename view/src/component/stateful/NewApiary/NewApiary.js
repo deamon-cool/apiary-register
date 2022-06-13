@@ -22,10 +22,6 @@ export default function NewApiary() {
     userApiaryNumberError: ''
   });
 
-  const dateValue = customDate.split('-').join('').length !== 8 ?
-    '' : customDate.split('-').join('');
-  const controlSum = calculateControlSum(dateValue, userApiaryNumber);
-
   const nameHandler = (name) => {
     if (name.length > 100) {
       setInputErrors(state => ({
@@ -78,6 +74,10 @@ export default function NewApiary() {
   const saveHandler = () => {
 
   }
+
+  const dateValue = customDate.split('-').join('').length !== 8 ?
+    '' : customDate.split('-').join('');
+  const controlSum = calculateControlSum(dateValue, userApiaryNumber);
 
   return (
     <div className={classes.NewApiary}>
