@@ -14,60 +14,18 @@ import calculateControlSum from '../../../functions/calculateControlSum';
 
 const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
-const userApiaryNumberLength = 5;
 
 export default function NewApiary() {
   const [warning, setWarning] = useState('');
   const [info, setInfo] = useState('');
   const [apiaryName, setApiaryName] = useState('');
   const [customDate, setCustomDate] = useState(getDateString());
-  const [correctCustomDate, setCorrectCustomDate] = useState(getDateString());
   const [userApiaryNumber, setUserApiaryNumber] = useState('00001');
   const [inputErrors, setInputErrors] = useState({
     nameError: '',
     dateError: '',
     userApiaryNumberError: ''
   });
-
-  useEffect(() => {
-    const abortController = new AbortController();
-
-    async function fetchApiariesAmount() {
-      const init = {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        signal: abortController.signal
-      };
-
-      fetch(config.APIARIES_AMOUNT_AT_DATE_FETCH_URL + customDate, init)
-        .then(res => res.json())
-        .then(data => {
-          if (data.error) {
-            setWarning(data.error);
-
-            return;
-          }
-
-          const stringNumber = (data.apiariesAmount + 1).toString();
-          const amountOfZeros = userApiaryNumberLength - stringNumber.length;
-          const l_userApiaryNumber = '0'.repeat(amountOfZeros) + stringNumber;
-
-          setUserApiaryNumber(l_userApiaryNumber);
-        })
-        .catch(err => {
-          console.log(err);
-          setWarning('Nie można pobrać ilości pasiek dla daty: ' + customDate);
-        })
-    }
-
-    fetchApiariesAmount();
-
-    return () => {
-      abortController.abort();
-    }
-  }, [correctCustomDate]);
 
   const nameHandler = (name) => {
     if (name.length > 100) {
