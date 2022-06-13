@@ -58,6 +58,7 @@ export default function NewApiary() {
       dateError: errorMessage
     }));
 
+    setUserApiaryNumber('00001');
     setCustomDate(dateString);
   }
 
