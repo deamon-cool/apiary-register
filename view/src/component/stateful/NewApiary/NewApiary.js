@@ -11,6 +11,11 @@ export default function NewApiary() {
   const [apiaryName, setApiaryName] = useState('');
   const [date, setDate] = useState(getDateString());
   const [userApiaryNumber, setUserApiaryNumber] = useState('');
+  const [inputErrors, setInputErrors] = useState({
+    nameError: '',
+    dateError: '',
+    userApiaryNumberError: ''
+  });
 
   const dateValue = date.split('-').join('');
   const controlSum = calculateControlSum();
@@ -67,12 +72,14 @@ export default function NewApiary() {
           <Input
             onChangeHandler={nameHandler}
             value={apiaryName} />
+          <div className={classes.Error}>{inputErrors.nameError}</div>
         </fieldset>
         <fieldset>
           <label>Data dodania pasieki</label>
           <Input
             onChangeHandler={dateHandler}
             value={date} />
+          <div className={classes.Error}>{inputErrors.dateError}</div>
         </fieldset>
         <fieldset>
           <label>Numer pasieki</label>
@@ -90,6 +97,7 @@ export default function NewApiary() {
               readOnly={true}
               customStyle={{ width: '40px' }} />
           </div>
+          <div className={classes.Error}>{inputErrors.userApiaryNumberError}</div>
         </fieldset>
         <fieldset>
           <Button
