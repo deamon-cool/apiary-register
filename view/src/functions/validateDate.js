@@ -1,5 +1,5 @@
 export default function validateDate(dateString) {
-  const splitedDateArr = date.split('-');
+  const splitedDateArr = dateString.split('-');
   const year = parseInt(splitedDateArr[0]);
   const month = parseInt(splitedDateArr[1]);
   const day = parseInt(splitedDateArr[2]);
