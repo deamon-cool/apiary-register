@@ -15,7 +15,7 @@ const apiaryNumberTester = /^\d\d\d\d\d$/;
 export default function NewApiary() {
   const [apiaryName, setApiaryName] = useState('');
   const [customDate, setCustomDate] = useState(getDateString());
-  const [userApiaryNumber, setUserApiaryNumber] = useState('');
+  const [userApiaryNumber, setUserApiaryNumber] = useState('00001');
   const [inputErrors, setInputErrors] = useState({
     nameError: '',
     dateError: '',
