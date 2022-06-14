@@ -29,7 +29,7 @@ export default function NewApiary() {
   const nameHandler = (e) => {
     const name = e.target.value;
 
-    if (name.length > 100) {
+    if (name.length > 70) {
       setInputErrors(state => ({
         ...state,
         nameError: 'Nazwa jest za długa.'
