@@ -74,7 +74,8 @@ export default function Apiaries() {
       <Search customStyle={{ padding: '0 15px 0 15px' }}>
         <Button
           onClickHandler={sortHandler}
-          text='Sortuj' />
+          text={buttonSortText}
+          customStyle={{ width: '200px', marginBottom: '5px' }} />
         <DateRange
           onDateRangeHandler={dateHandler}
           fromDate={customDateRange.from}
