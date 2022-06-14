@@ -8,7 +8,7 @@ export default function DateRange(props) {
 
   const dateRangeHandler = (e) => {
     props.onDateRangeHandler(e.target.name, e.target.value);
-  }
+  };
 
   return (
     <div className={classes.DateRange}>
