@@ -14,7 +14,7 @@ export default function Apiary(props) {
       <section>
         <h3>{name}</h3>
         <p>{date}</p>
-        <p>{apiaryNumber}</p>
+        <p>Nr: {apiaryNumber}</p>
       </section>
     </article>
   );
