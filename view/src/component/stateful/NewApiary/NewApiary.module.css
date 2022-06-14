@@ -39,9 +39,3 @@
   color: rgb(230, 149, 0);
   margin-bottom: 5px;
 }
-
-.NewApiary form fieldset .InputsRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}

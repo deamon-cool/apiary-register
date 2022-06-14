@@ -11,6 +11,7 @@ import getDateString from '../../../functions/getDateString';
 import calculateControlSum from '../../../functions/calculateControlSum';
 import generateUserApiaryNumber from '../../../functions/generateUserApiaryNumber';
 import DateInput from '../../stateless/DateInput/DateInput';
+import ApiaryNumberInput from '../../stateless/ApiaryNumberInput/ApiaryNumberInput';
 
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
 
@@ -173,31 +174,11 @@ export default function NewApiary() {
         </fieldset>
         <fieldset>
           <label>Numer pasieki</label>
-          <div className={classes.InputsRow}>
-            <Input
-              value={dateValue}
-              readOnly={true}
-              customStyle={{
-                width: '95px',
-                borderRadius: '10px 0 0 10px',
-                borderRight: 'none'
-              }} />
-            <Input
-              customStyle={{
-                width: '60px',
-                borderRadius: '0'
-              }}
-              onChangeHandler={userApiaryNumberHandler}
-              value={userApiaryNumber} />
-            <Input
-              value={controlSum}
-              readOnly={true}
-              customStyle={{
-                width: '45px',
-                borderRadius: '0 10px 10px 0',
-                borderLeft: 'none'
-              }} />
-          </div>
+          <ApiaryNumberInput
+            customDate={dateValue}
+            onInputHandler={userApiaryNumberHandler}
+            userValue={userApiaryNumber}
+            controlSum={controlSum} />
           <ErrorDiv text={inputErrors.userApiaryNumberError} />
         </fieldset>
         <fieldset>
