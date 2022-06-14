@@ -12,6 +12,7 @@ import calculateControlSum from '../../../functions/calculateControlSum';
 import generateUserApiaryNumber from '../../../functions/generateUserApiaryNumber';
 import DateInput from '../../stateless/DateInput/DateInput';
 import ApiaryNumberInput from '../../stateless/ApiaryNumberInput/ApiaryNumberInput';
+import validateDate from '../../../functions/validateDate';
 
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
 
@@ -47,6 +48,16 @@ export default function NewApiary() {
   };
 
   const dateHandler = (date) => {
+    const dateValidation = validateDate(date);
+    setInputErrors(state => ({
+      ...state,
+      dateError: dateValidation
+    }));
+
+    if (dateValidation) {
+      return;
+    }
+
     setDate(date);
     setUserApiaryNumber('00001');
     setApiaryNumberEdited(false);
