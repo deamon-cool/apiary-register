@@ -167,6 +167,7 @@ export default function NewApiary() {
         <fieldset>
           <label>Data dodania pasieki</label>
           <DateInput
+            onDateChangeHandler={dateHandler}
             date={date} />
           <ErrorDiv text={inputErrors.dateError} />
         </fieldset>
