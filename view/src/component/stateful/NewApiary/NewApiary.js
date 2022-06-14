@@ -53,6 +53,9 @@ export default function NewApiary() {
       return;
     }
 
+    // think about dateString.length > 3
+    //add -
+
     let errorMessage = '';
 
     if (!dateTester.test(dateString)) {
