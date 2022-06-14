@@ -12,8 +12,8 @@ import validateDate from '../../../functions/validateDate';
 export default function Apiaries() {
   const [sorting, setSorting] = useState('');
   const [customDateRange, setCustomDateRange] = useState({
-    from: 'YYYY-MM-DD',
-    to: 'YYYY-MM-DD'
+    fromDate: 'YYYY-MM-DD',
+    toDate: 'YYYY-MM-DD'
   });
 
   //download date
