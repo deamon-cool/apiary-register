@@ -106,6 +106,8 @@ export default function Apiaries() {
       nextApiary.apiaryNumber - prevApiary.apiaryNumber);
   }
 
+  let filteredApiaries = [...sortedApiaries];
+
   const apiaryItems = sortedApiaries.map(apiary => {
     return <Apiary
       key={apiary._id}
