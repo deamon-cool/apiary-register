@@ -64,12 +64,14 @@ export default function Apiaries() {
 
   return (
     <div className={classes.Apiaries}>
-      <Search customStyle={{marginTop: '10px', padding: '0 15px 0 15px'}}>
       <Toastbar
         info={info}
         warning={warning}
         infoTimePassedHandler={() => setInfo('')}
         warningTimePassedHandler={() => setWarning('')} />
+      <h2>Lista pasiek</h2>
+      <hr />
+      <Search customStyle={{ padding: '0 15px 0 15px' }}>
         <Button
           onClickHandler={sortHandler}
           text='Sortuj' />
