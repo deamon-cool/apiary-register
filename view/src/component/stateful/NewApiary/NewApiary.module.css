@@ -18,12 +18,18 @@
   margin-bottom: 20px;
 }
 
+.NewApiary form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .NewApiary form fieldset {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
-  margin: 10px 0 20px 0;
+  margin: 10px 0 10px 0;
   padding: 0;
 }
 
@@ -34,6 +40,8 @@
   margin-bottom: 5px;
 }
 
-.NewApiary form fieldset div {
+.NewApiary form fieldset .InputsRow {
+  display: flex;
   flex-direction: row;
+  justify-content: center;
 }
