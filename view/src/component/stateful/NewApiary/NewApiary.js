@@ -177,15 +177,26 @@ export default function NewApiary() {
             <Input
               value={dateValue}
               readOnly={true}
-              customStyle={{ width: '90px' }} />
+              customStyle={{
+                width: '95px',
+                borderRadius: '10px 0 0 10px',
+                borderRight: 'none'
+              }} />
             <Input
-              customStyle={{ width: '60px' }}
+              customStyle={{
+                width: '60px',
+                borderRadius: '0'
+              }}
               onChangeHandler={userApiaryNumberHandler}
               value={userApiaryNumber} />
             <Input
               value={controlSum}
               readOnly={true}
-              customStyle={{ width: '40px' }} />
+              customStyle={{
+                width: '45px',
+                borderRadius: '0 10px 10px 0',
+                borderLeft: 'none'
+              }} />
           </div>
           <ErrorDiv text={inputErrors.userApiaryNumberError} />
         </fieldset>
