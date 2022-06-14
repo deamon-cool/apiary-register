@@ -1,5 +1,7 @@
 import classes from './DateRange.module.css';
 
+import Input from '../Input/Input';
+
 export default function DateRange(props) {
   const fromDate = props.fromDate;
   const toDate = props.toDate;
