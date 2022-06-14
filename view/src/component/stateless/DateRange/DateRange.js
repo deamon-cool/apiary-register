@@ -1,16 +1,24 @@
 import classes from './DateRange.module.css';
 
 export default function DateRange(props) {
+  const fromDate = props.fromDate;
+  const toDate = props.toDate;
+
+  const dateRangeHandler = (e) => {
+    props.onDateRangeHandler(e.target.name, e.target.value);
+  }
 
   return (
     <div className={classes.DateRange}>
       <Input
-        onChangeHandler={dateHandler}
-        value={customDate} />
+        name='fromDate'
+        onChangeHandler={dateRangeHandler}
+        value={fromDate} />
       <b>-</b>
       <Input
-        onChangeHandler={dateHandler}
-        value={customDate} />
+        name='toDate'
+        onChangeHandler={dateRangeHandler}
+        value={toDate} />
     </div>
   );
 }
