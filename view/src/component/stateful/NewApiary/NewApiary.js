@@ -141,9 +141,10 @@ export default function NewApiary() {
           setWarning(data.error);
 
           if (data.apiaryExist) {
-            setUserApiaryNumber(state => (
-              generateUserApiaryNumber(state)
-            ));
+            //read mail dont generateUserApiaryNumber
+            // setUserApiaryNumber(state => (
+            //   generateUserApiaryNumber(state)
+            // ));
           }
 
           return;
