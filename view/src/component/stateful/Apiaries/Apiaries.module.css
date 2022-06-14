@@ -3,3 +3,16 @@
   flex-direction: column;
   align-items: center;
 }
+
+.Apiaries h2 {
+  font-size: 24px;
+  color: rgb(230, 149, 0);
+  margin: 20px 0 10px 0;
+}
+
+.Apiaries hr {
+  width: 250px;
+  border: 2px solid orange;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
