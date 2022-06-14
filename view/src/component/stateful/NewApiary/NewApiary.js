@@ -92,14 +92,16 @@ export default function NewApiary() {
       }
     }
 
-    const dateValue = date.split('-').join('');
+    const dateString = getDateString(date);
+    const dateValue = dateString.split('-').join('');
+    const controlSum = calculateControlSum(dateValue, userApiaryNumber);
     const apiaryNumber = parseInt(
-      [dateValue, userApiaryNumber, calculateControlSum(dateValue, userApiaryNumber)].join('')
+      [dateValue, userApiaryNumber, controlSum].join('')
     );
 
     const data = {
       name: apiaryName,
-      date: date,
+      date: dateString,
       apiaryNumber: apiaryNumber
     };
 
