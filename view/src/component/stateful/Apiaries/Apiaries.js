@@ -26,6 +26,14 @@ export default function Apiaries() {
 
   };
 
+  const clearSearchHandler = () => {
+    setSorting('');
+    setCustomDateRange({
+      from: 'YYYY-MM-DD',
+      to: 'YYYY-MM-DD'
+    })
+  }
+
   return (
     <div className={classes.Apiaries}>
       <Search customStyle={{marginTop: '10px', padding: '0 15px 0 15px'}}>
@@ -36,7 +44,10 @@ export default function Apiaries() {
           onDateRangeHandler={dateHandler}
           fromDate={customDateRange.from}
           toDate={customDateRange.to} />
-        {/* clear search */}
+        <Button
+          onClickHandler={clearSearchHandler}
+          text='X'
+          customStyle={{ position: 'absolute', right: '0', width: '30px' }} />
       </Search>
     </div>
   );
