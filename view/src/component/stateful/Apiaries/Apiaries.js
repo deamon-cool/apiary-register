@@ -55,6 +55,13 @@ export default function Apiaries() {
     })
   }
 
+  let buttonSortText = 'Sortowanie nr pasiek: (kliknij)';
+  if (sorting === 'ascending') {
+    buttonSortText = 'Sortowanie nr pasiek: ROSNĄCO';
+  } else if (sorting === 'descending') {
+    buttonSortText = 'Sortowanie nr pasiek: MALEJĄCO';
+  }
+
   return (
     <div className={classes.Apiaries}>
       <Search customStyle={{marginTop: '10px', padding: '0 15px 0 15px'}}>
