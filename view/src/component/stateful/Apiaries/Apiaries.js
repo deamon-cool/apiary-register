@@ -22,7 +22,22 @@ export default function Apiaries() {
   //download date
 
   const sortHandler = () => {
+    switch (sorting) {
+      case '':
+        setSorting('ascending');
+        break;
 
+      case 'descending':
+        setSorting('ascending');
+        break;
+
+      case 'ascending':
+        setSorting('descending');
+        break;
+
+      default:
+        break;
+    }
   };
 
   const dateHandler = (name, value) => {
