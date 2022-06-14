@@ -11,6 +11,7 @@ import getDateString from '../../../functions/getDateString';
 import validateDate from '../../../functions/validateDate';
 import calculateControlSum from '../../../functions/calculateControlSum';
 import generateUserApiaryNumber from '../../../functions/generateUserApiaryNumber';
+import DateInput from '../../stateless/DateInput/DateInput';
 
 const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
@@ -19,7 +20,7 @@ export default function NewApiary() {
   const [warning, setWarning] = useState('');
   const [info, setInfo] = useState('');
   const [apiaryName, setApiaryName] = useState('');
-  const [customDate, setCustomDate] = useState(getDateString());
+  const [date, setDate] = useState(new Date());
   const [userApiaryNumber, setUserApiaryNumber] = useState('00001');
   const [inputErrors, setInputErrors] = useState({
     nameError: '',
@@ -45,31 +46,10 @@ export default function NewApiary() {
     setApiaryName(name);
   };
 
-  const dateHandler = (e) => {
-    const dateString = e.target.value
-
-    if (dateString.length > 10) {
-      return;
-    }
-
-    // think about dateString.length > 3
-    //add -
-
-    let errorMessage = '';
-
-    if (!dateTester.test(dateString)) {
-      errorMessage = 'Nieprawidłowy format daty (YYYY-MM-DD).';
-    } else {
-      errorMessage = validateDate(dateString);
-    }
-
-    setInputErrors(state => ({
-      ...state,
-      dateError: errorMessage
-    }));
+  const dateHandler = (date) => {
+    console.log(date);
 
     setUserApiaryNumber('00001');
-    setCustomDate(dateString);
   }
 
   const userApiaryNumberHandler = (e) => {
@@ -115,14 +95,14 @@ export default function NewApiary() {
       }
     }
 
-    const dateValue = customDate.split('-').join('');
+    const dateValue = date.split('-').join('');
     const apiaryNumber = parseInt(
       [dateValue, userApiaryNumber, calculateControlSum(dateValue, userApiaryNumber)].join('')
     );
 
     const data = {
       name: apiaryName,
-      date: customDate,
+      date: date,
       apiaryNumber: apiaryNumber
     };
 
@@ -166,9 +146,8 @@ export default function NewApiary() {
       })
   }
 
-  const dateValue = customDate.split('-').join('').length !== 8 ?
-    '' : customDate.split('-').join('');
-  const controlSum = calculateControlSum(dateValue, userApiaryNumber);
+  const dateValue = 'dateValue';
+  const controlSum = 'controlSum';
 
   return (
     <div className={classes.NewApiary}>
@@ -183,15 +162,18 @@ export default function NewApiary() {
         <fieldset>
           <label>Nazwa</label>
           <Input
+            customStyle={{ width: '220px' }}
             onChangeHandler={nameHandler}
             value={apiaryName} />
           <ErrorDiv text={inputErrors.nameError} />
         </fieldset>
         <fieldset>
           <label>Data dodania pasieki</label>
-          <Input
+          <DateInput
+            showDatePicker={showDatePicker}
+            onClickHandler={showDatePickerHandler}
             onChangeHandler={dateHandler}
-            value={customDate} />
+            date={date} />
           <ErrorDiv text={inputErrors.dateError} />
         </fieldset>
         <fieldset>
