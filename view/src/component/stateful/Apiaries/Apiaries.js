@@ -78,8 +78,8 @@ export default function Apiaries() {
           customStyle={{ width: '200px', marginBottom: '5px' }} />
         <DateRange
           onDateRangeHandler={dateHandler}
-          fromDate={customDateRange.from}
-          toDate={customDateRange.to} />
+          fromDate={customDateRange.fromDate}
+          toDate={customDateRange.toDate} />
         <Button
           onClickHandler={clearSearchHandler}
           text='X'
