@@ -7,7 +7,7 @@ export default function Input(props) {
   const customStyle = props.customStyle;
 
   const changeHandler = (e) => {
-    props.onChangeHandler(e.target.value);
+    props.onChangeHandler(e);
   };
 
   return (
