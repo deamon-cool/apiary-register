@@ -20,6 +20,7 @@ export default function NewApiary() {
   const [apiaryName, setApiaryName] = useState('');
   const [date, setDate] = useState(new Date());
   const [userApiaryNumber, setUserApiaryNumber] = useState('00001');
+  const [apiaryNumberEdited, setApiaryNumberEdited] = useState(false);
   const [inputErrors, setInputErrors] = useState({
     nameError: '',
     dateError: '',
@@ -69,6 +70,7 @@ export default function NewApiary() {
     }
 
     setUserApiaryNumber(apiaryNumberStr);
+    setApiaryNumberEdited(true);
   }
 
   const saveHandler = () => {
@@ -119,22 +121,17 @@ export default function NewApiary() {
         if (data.error) {
           setWarning(data.error);
 
-          if (data.apiaryExist) {
-            //read mail dont generateUserApiaryNumber
-            // setUserApiaryNumber(state => (
-            //   generateUserApiaryNumber(state)
-            // ));
-          }
-
           return;
         }
 
         if (data.info) {
           setInfo(data.info);
 
-          setUserApiaryNumber(state => (
-            generateUserApiaryNumber(state)
-          ));
+          if (!apiaryNumberEdited) {
+            setUserApiaryNumber(state => (
+              generateUserApiaryNumber(state)
+            ));
+          }
 
           return;
         }
