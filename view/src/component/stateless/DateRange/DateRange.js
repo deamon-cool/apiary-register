@@ -15,12 +15,14 @@ export default function DateRange(props) {
       <Input
         name='fromDate'
         onChangeHandler={dateRangeHandler}
-        value={fromDate} />
-      <b>-</b>
+        value={fromDate}
+        customStyle={{width: '100px'}} />
+      <b> - </b>
       <Input
         name='toDate'
         onChangeHandler={dateRangeHandler}
-        value={toDate} />
+        value={toDate}
+        customStyle={{width: '100px'}} />
     </div>
   );
 }
