@@ -23,7 +23,11 @@ export default function Apiaries() {
   };
 
   const dateHandler = (name, value) => {
-
+    console.log(name, value)
+    setCustomDateRange(state => ({
+      ...state,
+      [name] : value
+    }));
   };
 
   const clearSearchHandler = () => {
