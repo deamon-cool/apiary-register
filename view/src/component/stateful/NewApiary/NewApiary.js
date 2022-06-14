@@ -8,12 +8,10 @@ import ErrorDiv from '../../stateless/ErrorDiv/ErrorDiv';
 import Toastbar from '../../stateless/Toastbar/Toastbar';
 
 import getDateString from '../../../functions/getDateString';
-import validateDate from '../../../functions/validateDate';
 import calculateControlSum from '../../../functions/calculateControlSum';
 import generateUserApiaryNumber from '../../../functions/generateUserApiaryNumber';
 import DateInput from '../../stateless/DateInput/DateInput';
 
-const dateTester = /^\d\d\d\d-\d\d\-\d\d$/;
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
 
 export default function NewApiary() {
@@ -47,8 +45,6 @@ export default function NewApiary() {
   };
 
   const dateHandler = (date) => {
-    console.log(date);
-
     setUserApiaryNumber('00001');
   }
 
@@ -170,9 +166,6 @@ export default function NewApiary() {
         <fieldset>
           <label>Data dodania pasieki</label>
           <DateInput
-            showDatePicker={showDatePicker}
-            onClickHandler={showDatePickerHandler}
-            onChangeHandler={dateHandler}
             date={date} />
           <ErrorDiv text={inputErrors.dateError} />
         </fieldset>
