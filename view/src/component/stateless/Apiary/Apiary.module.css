@@ -1,6 +1,7 @@
 .Apiary {
+  width: 280px;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: center;
   background-color: rgb(255, 242, 172);
   padding: 10px;
