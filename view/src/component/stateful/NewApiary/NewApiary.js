@@ -28,7 +28,9 @@ export default function NewApiary() {
     userApiaryNumberError: ''
   });
 
-  const nameHandler = (name) => {
+  const nameHandler = (e) => {
+    const name = e.target.value;
+
     if (name.length > 100) {
       setInputErrors(state => ({
         ...state,
@@ -44,7 +46,9 @@ export default function NewApiary() {
     setApiaryName(name);
   };
 
-  const dateHandler = (dateString) => {
+  const dateHandler = (e) => {
+    const dateString = e.target.value
+
     if (dateString.length > 10) {
       return;
     }
@@ -66,7 +70,9 @@ export default function NewApiary() {
     setCustomDate(dateString);
   }
 
-  const userApiaryNumberHandler = (apiaryNumberStr) => {
+  const userApiaryNumberHandler = (e) => {
+    const apiaryNumberStr = e.target.value;
+
     if (apiaryNumberStr.length > 5 || isNaN(apiaryNumberStr)) {
       return;
     }
