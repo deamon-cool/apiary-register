@@ -28,7 +28,7 @@ export default function Apiaries() {
 
   return (
     <div className={classes.Apiaries}>
-      <Search>
+      <Search customStyle={{marginTop: '10px', padding: '0 15px 0 15px'}}>
         <Button
           onClickHandler={sortHandler}
           text='Sortuj' />
