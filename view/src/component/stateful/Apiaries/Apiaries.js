@@ -93,13 +93,20 @@ export default function Apiaries() {
   }
 
   let buttonSortText = 'Sortowanie nr pasiek: (kliknij)';
+  let sortedApiaries = [...apiaries];
   if (sorting === 'ascending') {
     buttonSortText = 'Sortowanie nr pasiek: ROSNĄCO';
+
+    sortedApiaries = sortedApiaries.sort((prevApiary, nextApiary) =>
+      prevApiary.apiaryNumber - nextApiary.apiaryNumber);
   } else if (sorting === 'descending') {
     buttonSortText = 'Sortowanie nr pasiek: MALEJĄCO';
+
+    sortedApiaries = sortedApiaries.sort((prevApiary, nextApiary) =>
+      nextApiary.apiaryNumber - prevApiary.apiaryNumber);
   }
 
-  const apiariesItems = apiaries.map(apiary => {
+  const apiaryItems = sortedApiaries.map(apiary => {
     return <Apiary
       key={apiary._id}
       name={apiary.name}
@@ -131,7 +138,7 @@ export default function Apiaries() {
           customStyle={{ position: 'absolute', right: '0', width: '30px' }} />
       </Search>
       <List>
-        {apiariesItems}
+        {apiaryItems}
       </List>
     </div>
   );
