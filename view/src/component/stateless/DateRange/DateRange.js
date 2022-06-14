@@ -17,13 +17,13 @@ export default function DateRange(props) {
         name='fromDate'
         onChangeHandler={dateRangeHandler}
         value={fromDate}
-        customStyle={{width: '100px'}} />
-      <b> - </b>
+        customStyle={{width: '120px'}} />
+      <b>-</b>
       <Input
         name='toDate'
         onChangeHandler={dateRangeHandler}
         value={toDate}
-        customStyle={{width: '100px'}} />
+        customStyle={{width: '120px'}} />
     </div>
   );
 }
