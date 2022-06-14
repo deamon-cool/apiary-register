@@ -5,13 +5,14 @@ import Input from '../Input/Input';
 export default function DateRange(props) {
   const fromDate = props.fromDate;
   const toDate = props.toDate;
+  const customStyle = props.customStyle;
 
   const dateRangeHandler = (e) => {
     props.onDateRangeHandler(e.target.name, e.target.value);
   };
 
   return (
-    <div className={classes.DateRange}>
+    <div className={classes.DateRange} style={customStyle}>
       <Input
         name='fromDate'
         onChangeHandler={dateRangeHandler}
