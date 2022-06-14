@@ -1,3 +1,11 @@
 .DateRange {
-  
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.DateRange b {
+  color: orange;
+  margin: 0 5px 0 5px;
 }
