@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
+import * as config from '../../../config/config';
 import classes from './NewApiary.module.css';
 import Input from '../../stateless/Input/Input';
 import Button from '../../stateless/Button/Button';
 import ErrorDiv from '../../stateless/ErrorDiv/ErrorDiv';
 import Toastbar from '../../stateless/Toastbar/Toastbar';
-
-import * as config from '../../../config/config';
 
 import getDateString from '../../../functions/getDateString';
 import validateDate from '../../../functions/validateDate';
