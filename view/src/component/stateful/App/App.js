@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className={classes.App}>
-      <Navbar onImageClick={() => navigate('/')}/>
+      <Navbar onImageClick={() => navigate('/')} />
       <Container>
         <Routes>
           <Route path="/" element={<RoutesContainer />} />
