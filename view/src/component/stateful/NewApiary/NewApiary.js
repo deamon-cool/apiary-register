@@ -48,6 +48,7 @@ export default function NewApiary() {
   const dateHandler = (date) => {
     setDate(date);
     setUserApiaryNumber('00001');
+    setApiaryNumberEdited(false);
   }
 
   const userApiaryNumberHandler = (e) => {
