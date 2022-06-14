@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import classes from './Apiaries.module.css';
 
+import { GET_APIARIES_FETCH_URL } from '../../../config/config';
 import Search from '../../stateless/Search/Search';
 import Button from '../../stateless/Button/Button';
 import DateRange from '../../stateless/DateRange/DateRange';
 import Toastbar from '../../stateless/Toastbar/Toastbar';
+import List from '../../stateless/List/List';
+import Apiary from '../../stateless/Apiary/Apiary';
 
 import getDateString from '../../../functions/getDateString';
 import validateDate from '../../../functions/validateDate';
@@ -18,8 +21,42 @@ export default function Apiaries() {
     fromDate: 'YYYY-MM-DD',
     toDate: 'YYYY-MM-DD'
   });
+  const [apiaries, setApiaries] = useState([]);
 
-  //download date
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    async function fetchApiariesAmount() {
+      const init = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        signal: abortController.signal
+      };
+      fetch(GET_APIARIES_FETCH_URL, init)
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) {
+            setWarning(data.error);
+
+            return;
+          }
+
+          setApiaries(data.apiaries);
+        })
+        .catch(err => {
+          console.log(err);
+          setWarning('Nie można pobrać listy pasiek.');
+        })
+    }
+
+    fetchApiariesAmount();
+
+    return () => {
+      abortController.abort();
+    }
+  }, []);
 
   const sortHandler = () => {
     switch (sorting) {
@@ -62,6 +99,14 @@ export default function Apiaries() {
     buttonSortText = 'Sortowanie nr pasiek: MALEJĄCO';
   }
 
+  const apiariesItems = apiaries.map(apiary => {
+    return <Apiary
+      key={apiary._id}
+      name={apiary.name}
+      date={apiary.date}
+      apiaryNumber={apiary.apiaryNumber} />
+  });
+
   return (
     <div className={classes.Apiaries}>
       <Toastbar
@@ -85,6 +130,9 @@ export default function Apiaries() {
           text='X'
           customStyle={{ position: 'absolute', right: '0', width: '30px' }} />
       </Search>
+      <List>
+        {apiariesItems}
+      </List>
     </div>
   );
 }
