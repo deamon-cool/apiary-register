@@ -50,8 +50,8 @@ export default function Apiaries() {
   const clearSearchHandler = () => {
     setSorting('');
     setCustomDateRange({
-      from: 'YYYY-MM-DD',
-      to: 'YYYY-MM-DD'
+      fromDate: 'YYYY-MM-DD',
+      toDate: 'YYYY-MM-DD'
     })
   }
 
