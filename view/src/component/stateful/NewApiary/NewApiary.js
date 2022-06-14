@@ -143,8 +143,8 @@ export default function NewApiary() {
       })
   }
 
-  const dateValue = 'dateValue';
-  const controlSum = 'controlSum';
+  const dateValue = getDateString(date).split('-').join('');
+  const controlSum = calculateControlSum(dateValue, userApiaryNumber);
 
   return (
     <div className={classes.NewApiary}>
