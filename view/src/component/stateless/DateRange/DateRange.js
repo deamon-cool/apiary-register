@@ -1,6 +1,7 @@
 import classes from './DateRange.module.css';
 
 import Input from '../Input/Input';
+import DateInput from '../DateInput/DateInput';
 
 export default function DateRange(props) {
   const fromDate = props.fromDate;
@@ -13,17 +14,19 @@ export default function DateRange(props) {
 
   return (
     <div className={classes.DateRange} style={customStyle}>
-      <Input
+      <DateInput shorterWidth={true}/>
+      {/* <Input
         name='fromDate'
         onChangeHandler={dateRangeHandler}
         value={fromDate}
-        customStyle={{width: '120px'}} />
+        customStyle={{width: '120px'}} /> */}
       <b>-</b>
-      <Input
+      <DateInput shorterWidth={true}/>
+      {/* <Input
         name='toDate'
         onChangeHandler={dateRangeHandler}
         value={toDate}
-        customStyle={{width: '120px'}} />
+        customStyle={{width: '120px'}} /> */}
     </div>
   );
 }
