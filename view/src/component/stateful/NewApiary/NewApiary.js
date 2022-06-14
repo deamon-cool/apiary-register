@@ -173,7 +173,7 @@ export default function NewApiary() {
         </fieldset>
         <fieldset>
           <label>Numer pasieki</label>
-          <div>
+          <div className={classes.InputsRow}>
             <Input
               value={dateValue}
               readOnly={true}
