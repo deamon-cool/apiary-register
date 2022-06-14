@@ -5,11 +5,14 @@ import classes from './Apiaries.module.css';
 import Search from '../../stateless/Search/Search';
 import Button from '../../stateless/Button/Button';
 import DateRange from '../../stateless/DateRange/DateRange';
+import Toastbar from '../../stateless/Toastbar/Toastbar';
 
 import getDateString from '../../../functions/getDateString';
 import validateDate from '../../../functions/validateDate';
 
 export default function Apiaries() {
+  const [warning, setWarning] = useState('');
+  const [info, setInfo] = useState('');
   const [sorting, setSorting] = useState('');
   const [customDateRange, setCustomDateRange] = useState({
     fromDate: 'YYYY-MM-DD',
@@ -41,6 +44,11 @@ export default function Apiaries() {
   return (
     <div className={classes.Apiaries}>
       <Search customStyle={{marginTop: '10px', padding: '0 15px 0 15px'}}>
+      <Toastbar
+        info={info}
+        warning={warning}
+        infoTimePassedHandler={() => setInfo('')}
+        warningTimePassedHandler={() => setWarning('')} />
         <Button
           onClickHandler={sortHandler}
           text='Sortuj' />
