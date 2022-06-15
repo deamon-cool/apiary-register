@@ -14,16 +14,16 @@ export default function Apiaries() {
   const [warning, setWarning] = useState('');
   const [info, setInfo] = useState('');
   const [sorting, setSorting] = useState('');
-  const [customDateRange, setCustomDateRange] = useState({
-    fromDate: 'YYYY-MM-DD',
-    toDate: 'YYYY-MM-DD'
+  const [dateRange, setDateRange] = useState({
+    startDate: new Date(),
+    endDate: new Date()
   });
   const [apiaries, setApiaries] = useState([]);
 
   useEffect(() => {
     const abortController = new AbortController();
 
-    async function fetchApiariesAmount() {
+    async function fetchApiaries() {
       const init = {
         method: 'GET',
         headers: {
@@ -48,7 +48,7 @@ export default function Apiaries() {
         })
     }
 
-    fetchApiariesAmount();
+    fetchApiaries();
 
     return () => {
       abortController.abort();
@@ -74,19 +74,26 @@ export default function Apiaries() {
     }
   };
 
-  const dateHandler = (name, value) => {
-    setCustomDateRange(state => ({
+  const startDateHandler = (date) => {
+    setDateRange(state => ({
       ...state,
-      [name]: value
+      startDate: date
+    }));
+  };
+
+  const endDateHandler = (date) => {
+    setDateRange(state => ({
+      ...state,
+      endDate: date
     }));
   };
 
   const clearSearchHandler = () => {
     setSorting('');
-    setCustomDateRange({
-      fromDate: 'YYYY-MM-DD',
-      toDate: 'YYYY-MM-DD'
-    })
+    setDateRange({
+      startDate: new Date(),
+      endDate: new Date()
+    });
   }
 
   let buttonSortText = 'Sortowanie nr pasiek: (kliknij)';
@@ -128,9 +135,10 @@ export default function Apiaries() {
           text={buttonSortText}
           customStyle={{ width: '200px', marginBottom: '5px' }} />
         <DateRange
-          onDateRangeHandler={dateHandler}
-          fromDate={customDateRange.fromDate}
-          toDate={customDateRange.toDate} />
+          startDate={dateRange.startDate}
+          onChangeStartDate={startDateHandler}
+          endDate={dateRange.endDate}
+          onChangeEndDate={endDateHandler} />
         <Button
           onClickHandler={clearSearchHandler}
           text='X'
