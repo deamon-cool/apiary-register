@@ -122,8 +122,20 @@ export default function Apiaries() {
   }
 
   let filteredApiaries = [...sortedApiaries];
+  if (dateRange.startDate < dateRange.endDate) {
+    filteredApiaries = filteredApiaries.filter(apiary => {
+      const apiaryDate = new Date(apiary.date);
 
-  const apiaryItems = sortedApiaries.map(apiary => {
+      if (apiaryDate >= dateRange.startDate &&
+        apiaryDate <= dateRange.endDate) {
+        return apiary;
+      }
+
+      return null;
+    });
+  }
+
+  const apiaryItems = filteredApiaries.map(apiary => {
     return <Apiary
       key={apiary._id}
       name={apiary.name}
