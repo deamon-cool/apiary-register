@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
       return res.status(400).send({ error: 'Wpisz nazwę pasieki.' });
     }
 
-    if (name.length > 100) {
+    if (name.length > 70) {
       return res.status(400).send({ error: 'Nazwa jest za długa.' });
     }
 
