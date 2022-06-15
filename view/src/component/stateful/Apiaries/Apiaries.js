@@ -10,9 +10,6 @@ import Toastbar from '../../stateless/Toastbar/Toastbar';
 import List from '../../stateless/List/List';
 import Apiary from '../../stateless/Apiary/Apiary';
 
-import getDateString from '../../../functions/getDateString';
-import validateDate from '../../../functions/validateDate';
-
 export default function Apiaries() {
   const [warning, setWarning] = useState('');
   const [info, setInfo] = useState('');
