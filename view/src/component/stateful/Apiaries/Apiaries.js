@@ -10,6 +10,15 @@ import Toastbar from '../../stateless/Toastbar/Toastbar';
 import List from '../../stateless/List/List';
 import Apiary from '../../stateless/Apiary/Apiary';
 
+let searchStyle = { padding: '0 15px 0 15px' };
+let sortButtonStyle = { width: '200px', marginBottom: '10px' };
+let clearButtonStyle = { position: 'absolute', right: '0', width: '30px', padding: '0' };
+if (window.innerWidth > 700) {
+  sortButtonStyle.width = '250px';
+  searchStyle.padding = '0 35px 0 35px'
+  clearButtonStyle.width = '40px'
+}
+
 export default function Apiaries() {
   const [warning, setWarning] = useState('');
   const [info, setInfo] = useState('');
@@ -152,11 +161,11 @@ export default function Apiaries() {
         warningTimePassedHandler={() => setWarning('')} />
       <h2>Lista pasiek</h2>
       <hr />
-      <Search customStyle={{ padding: '0 15px 0 15px' }}>
+      <Search customStyle={searchStyle}>
         <Button
           onClickHandler={sortHandler}
           text={buttonSortText}
-          customStyle={{ width: '200px', marginBottom: '10px' }} />
+          customStyle={sortButtonStyle} />
         <DateRange
           startDate={dateRange.startDate}
           onChangeStartDate={startDateHandler}
@@ -165,7 +174,7 @@ export default function Apiaries() {
         <Button
           onClickHandler={clearSearchHandler}
           text='X'
-          customStyle={{ position: 'absolute', right: '0', width: '30px' }} />
+          customStyle={clearButtonStyle} />
       </Search>
       <List>
         {apiaryItems}
