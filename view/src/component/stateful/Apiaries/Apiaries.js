@@ -75,10 +75,17 @@ export default function Apiaries() {
   };
 
   const startDateHandler = (date) => {
-    setDateRange(state => ({
-      ...state,
-      startDate: date
-    }));
+    if (date > dateRange.endDate) {
+      setDateRange(state => ({
+        endDate: date,
+        startDate: date
+      }));
+    } else {
+      setDateRange(state => ({
+        ...state,
+        startDate: date
+      }));
+    }
   };
 
   const endDateHandler = (date) => {
