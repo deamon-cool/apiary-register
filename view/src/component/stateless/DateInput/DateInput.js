@@ -9,20 +9,14 @@ registerLocale('pl', pl);
 
 export default function DateInput(props) {
   const date = props.date;
-  const shorterWidth = props.shorterWidth;
 
   const changeDateHandler = (date) => {
     props.onDateChangeHandler(date);
   };
 
-  let customClasses = classes.DatePicker;
-  if (shorterWidth) {
-    customClasses = [classes.DatePicker, classes.Short];
-  }
-
   return (
     <DatePicker
-      className={customClasses}
+      className={classes.DatePicker}
       locale='pl'
       dateFormat="yyyy-MM-dd"
       closeOnScroll={true}

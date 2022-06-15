@@ -7,10 +7,6 @@
   background-color: rgb(252, 250, 238);
 }
 
-.Short {
-  width: 120px;
-}
-
 .DatePicker:hover {
   background-color: rgb(255, 244, 172);
 }
