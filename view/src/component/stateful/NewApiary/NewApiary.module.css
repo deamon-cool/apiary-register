@@ -40,3 +40,13 @@
   color: rgb(230, 149, 0);
   margin-bottom: 5px;
 }
+
+@media (min-width: 700px) {
+  .NewApiary h2 {
+    font-size: 26px;
+  }
+
+  .NewApiary form fieldset label {
+    font-size: 22px;
+  }
+}
