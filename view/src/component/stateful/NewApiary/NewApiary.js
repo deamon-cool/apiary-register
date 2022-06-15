@@ -16,6 +16,11 @@ import validateDate from '../../../functions/validateDate';
 
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
 
+let nameInputStyle = { width: '220px' };
+if (window.innerWidth > 700) {
+  nameInputStyle = { width: '400px' };
+}
+
 export default function NewApiary() {
   const [warning, setWarning] = useState('');
   const [info, setInfo] = useState('');
@@ -180,7 +185,7 @@ export default function NewApiary() {
         <fieldset>
           <label>Nazwa</label>
           <Input
-            customStyle={{ width: '220px' }}
+            customStyle={nameInputStyle}
             onChangeHandler={nameHandler}
             value={apiaryName} />
           <ErrorDiv text={inputErrors.nameError} />
