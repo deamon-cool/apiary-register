@@ -1,9 +1,9 @@
-import classes from './DateInput.module.css';
-
 import DatePicker from "react-datepicker";
-import "./CustomDatePicker.css";
 import { registerLocale } from "react-datepicker";
 import pl from 'date-fns/locale/pl';
+
+import "./CustomDatePicker.css";
+import classes from './DateInput.module.css';
 
 registerLocale('pl', pl);
 
