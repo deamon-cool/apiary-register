@@ -12,7 +12,10 @@ module.exports = async (req, res, next) => {
 
     const apiary = await Apiary.findOne({ apiaryNumber: apiaryNumber });
     if (apiary) {
-      return res.status(400).send({ error: 'Pasieka o tym numerze już istnieje. Spróbuj innego numeru.' });
+      return res.status(400).send({
+        error: 'Pasieka o tym numerze już istnieje. Spróbuj innego numeru.',
+        apiaryExist: true
+      });
     }
 
     if (name.length < 1) {
