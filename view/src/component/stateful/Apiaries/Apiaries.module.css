@@ -17,3 +17,9 @@
   border-radius: 10px;
   margin-bottom: 20px;
 }
+
+@media (min-width: 700px) {
+  .Apiaries h2 {
+    font-size: 26px;
+  }
+}
