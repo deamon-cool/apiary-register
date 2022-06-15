@@ -40,6 +40,10 @@ export default function Apiaries() {
             return;
           }
 
+          if (data.apiaries.length === 0) {
+            setInfo('Brak listy pasiek do wyświetlenia.');
+          }
+
           setApiaries(data.apiaries);
         })
         .catch(err => {
