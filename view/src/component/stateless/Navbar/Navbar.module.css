@@ -37,3 +37,21 @@
   width: 10px;
   height: 50px;
 }
+
+@media (min-width: 700px) {
+  .Navbar img {
+    width: 55px;
+    height: 55px;
+    padding: 0 5px 0 5px;
+  }
+
+  .Navbar h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 300px) {
+  .Navbar h1 {
+    font-size: 26px;
+  }
+}
