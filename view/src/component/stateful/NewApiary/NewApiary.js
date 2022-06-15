@@ -134,11 +134,20 @@ export default function NewApiary() {
         if (data.error) {
           setWarning(data.error);
 
+          if (data.apiaryExist) {
+            if (!apiaryNumberEdited) {
+              setUserApiaryNumber(state => (
+                generateUserApiaryNumber(state)
+              ));
+            }
+          }
+
           return;
         }
 
         if (data.info) {
           setInfo(data.info);
+          setWarning('');
 
           if (!apiaryNumberEdited) {
             setUserApiaryNumber(state => (
