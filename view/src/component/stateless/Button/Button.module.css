@@ -13,3 +13,11 @@
 .Button:hover {
   background-color: rgb(255, 247, 199);
 }
+
+@media (min-width: 700px) {
+  .Button {
+    font-size: 20px;
+    width: 200px;
+    padding: 10px;
+  }
+}
