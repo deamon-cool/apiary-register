@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import classes from './Apiaries.module.css';
 
 import { GET_APIARIES_FETCH_URL } from '../../../config/config';
+import Toastbar from '../../stateless/Toastbar/Toastbar';
 import Search from '../../stateless/Search/Search';
 import Button from '../../stateless/Button/Button';
 import DateRange from '../../stateless/DateRange/DateRange';
-import Toastbar from '../../stateless/Toastbar/Toastbar';
 import List from '../../stateless/List/List';
 import Apiary from '../../stateless/Apiary/Apiary';
 
