@@ -17,6 +17,9 @@
 }
 
 .Apiary section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   color: rgb(230, 149, 0);
 }
 
@@ -31,4 +34,25 @@
 .Apiary section p {
   font-size: 18px;
   margin: 5px;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .Apiary {
+    width: 600px;
+    margin: 15px 0 0 0;
+  }
+
+  .Apiary img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .Apiary section h3 {
+    font-size: 22px;
+  }
+
+  .Apiary section p {
+    font-size: 20px;
+  }
 }
