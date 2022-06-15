@@ -133,7 +133,7 @@ export default function Apiaries() {
         <Button
           onClickHandler={sortHandler}
           text={buttonSortText}
-          customStyle={{ width: '200px', marginBottom: '5px' }} />
+          customStyle={{ width: '200px', marginBottom: '10px' }} />
         <DateRange
           startDate={dateRange.startDate}
           onChangeStartDate={startDateHandler}
