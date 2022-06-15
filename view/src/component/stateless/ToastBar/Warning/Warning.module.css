@@ -1,6 +1,9 @@
 .Warning {
     background-color: rgb(252, 250, 238);
-    width: fit-content;
+    position: fixed;
+    top: 98px;
+    right: 1px;
+    left: 1px;
     text-align: center;
     font-size: 16px;
     color: red;

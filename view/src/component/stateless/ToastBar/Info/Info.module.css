@@ -1,6 +1,9 @@
 .Info {
     background-color: rgb(252, 250, 238);
-    width: fit-content;
+    position: fixed;
+    top: 60px;
+    right: 1px;
+    left: 1px;
     text-align: center;
     font-size: 16px;
     color: rgb(189, 123, 0);
