@@ -1,3 +1,8 @@
+# apiary-register
+Apiary register app - allows to save apiary to database and view added apiaries with filtering and sorting
+
+PL
+=======
 Technology stack:
 -node.js, express.js, mongoose, MongoDB, react.js, router
 
