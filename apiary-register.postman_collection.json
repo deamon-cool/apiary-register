@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "6c9162fb-2301-457e-a88a-277636aa72fc",
+		"name": "apiary-register",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add-new-apiary",
+			"item": [
+				{
+					"name": "add-new-apiary",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pasieka 1\",\r\n    \"date\": \"2022-06-09\",\r\n    \"apiaryNumber\": 2022060900002708\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empty name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"date\": \"2022-06-09\",\r\n    \"apiaryNumber\": 2022060900002709\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bad future date",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pasieka 1\",\r\n    \"date\": \"2052-06-16\",\r\n    \"apiaryNumber\": 2022060900002709\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bad body",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cos\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bad name type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": {\"cos\": \"cos\"},\r\n    \"date\": \"11.06.22\",\r\n    \"apiaryNumber\": 2022060900002708\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bad name type 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": 123,\r\n    \"date\": \"11.06.22\",\r\n    \"apiaryNumber\": 2022060900002708\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bad date type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"date\": 123,\r\n    \"apiaryNumber\": 2022060900002708\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bad date type 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"date\": {\"a\":1},\r\n    \"apiaryNumber\": 2022060900002708\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bad date",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"date\": \"29-02-2020\",\r\n    \"apiaryNumber\": 2022060900002708\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9000/api/add-new-apiary",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"add-new-apiary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get-apiaries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:9000/api/get-apiaries",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"get-apiaries"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -19,7 +19,9 @@ function App() {
     <div className={classes.App}>
       <Navbar onImageClick={() => navigate('/')} />
       <Container>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={
+          <div className={classes.Loading}>Loading...</div>
+        }>
           <Routes>
             <Route path="/" element={<RoutesContainer />} />
             <Route path={NEW_APIARY_ROUTE} element={<NewApiary />} />

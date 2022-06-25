@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 
 import * as config from '../../../config/config';
+import classes from './Toastbar.module.css';
+
 import Info from './Info/Info';
 import Warning from './Warning/Warning';
-import classes from './Toastbar.module.css';
 
 export default function Toastbar(props) {
 	const info = props.info;
 	const warning = props.warning;
-	const infoTimePassed = props.infoTimePassedHandler;
-	const warningTimePassed = props.warningTimePassedHandler;
+	const infoTimePassedHandler = props.infoTimePassedHandler;
+	const warningTimePassedHandler = props.warningTimePassedHandler;
 
 	// shows main info
 	let informationElement = null;
@@ -21,7 +22,7 @@ export default function Toastbar(props) {
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			infoTimePassed();
+			infoTimePassedHandler();
 		}, config.INFO_TIME_SEK * 1000);
 
 		return () => clearTimeout(timer);
@@ -38,7 +39,7 @@ export default function Toastbar(props) {
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			warningTimePassed();
+			warningTimePassedHandler();
 		}, config.WARNING_TIME_SEK * 1000);
 
 		return () => clearTimeout(timer)

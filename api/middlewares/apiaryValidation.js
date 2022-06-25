@@ -12,14 +12,17 @@ module.exports = async (req, res, next) => {
 
     const apiary = await Apiary.findOne({ apiaryNumber: apiaryNumber });
     if (apiary) {
-      return res.status(400).send({ error: 'Pasieka o tym numerze już istnieje. Spróbuj innego numeru.' });
+      return res.status(400).send({
+        error: 'Pasieka o tym numerze już istnieje. Spróbuj innego numeru.',
+        apiaryExist: true
+      });
     }
 
     if (name.length < 1) {
       return res.status(400).send({ error: 'Wpisz nazwę pasieki.' });
     }
 
-    if (name.length > 100) {
+    if (name.length > 70) {
       return res.status(400).send({ error: 'Nazwa jest za długa.' });
     }
 
@@ -37,9 +40,11 @@ module.exports = async (req, res, next) => {
       monthDuration[1] = 29;
     }
 
+    const today = new Date();
+    const sentDate = new Date(date);
+
     if (day > monthDuration[month - 1] || day < 1 ||
-      month > 12 || month < 1 ||
-      year > (new Date()).getFullYear()) {
+      month > 12 || month < 1 || sentDate > today) {
       return res.status(400).send({ error: 'Nieprawidłowa data. Sprawdź dokładnie rok, miesiąc i dzień.' });
     }
 

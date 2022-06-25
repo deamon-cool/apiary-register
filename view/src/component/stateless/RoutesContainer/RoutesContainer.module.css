@@ -4,3 +4,10 @@
   padding-top: 20px;
   align-items: center;
 }
+
+@media (min-width: 700px) {
+  .RoutesContainer {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

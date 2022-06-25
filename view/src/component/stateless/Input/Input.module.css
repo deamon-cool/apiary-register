@@ -18,3 +18,9 @@
 .Input:disabled {
   background-color: rgb(255, 244, 172);
 }
+
+@media (min-width: 700px) {
+  .Input {
+    font-size: 20px;
+  }
+}

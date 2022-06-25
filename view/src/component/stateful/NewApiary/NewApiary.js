@@ -2,10 +2,11 @@ import { useState } from 'react';
 
 import * as config from '../../../config/config';
 import classes from './NewApiary.module.css';
+
+import Toastbar from '../../stateless/Toastbar/Toastbar';
 import Input from '../../stateless/Input/Input';
 import Button from '../../stateless/Button/Button';
 import ErrorDiv from '../../stateless/ErrorDiv/ErrorDiv';
-import Toastbar from '../../stateless/Toastbar/Toastbar';
 
 import getDateString from '../../../functions/getDateString';
 import calculateControlSum from '../../../functions/calculateControlSum';
@@ -15,6 +16,11 @@ import ApiaryNumberInput from '../../stateless/ApiaryNumberInput/ApiaryNumberInp
 import validateDate from '../../../functions/validateDate';
 
 const userApiaryNumberTester = /^\d\d\d\d\d$/;
+
+let nameInputStyle = { width: '220px' };
+if (window.innerWidth > 700) {
+  nameInputStyle = { width: '400px' };
+}
 
 export default function NewApiary() {
   const [warning, setWarning] = useState('');
@@ -134,11 +140,20 @@ export default function NewApiary() {
         if (data.error) {
           setWarning(data.error);
 
+          if (data.apiaryExist) {
+            if (!apiaryNumberEdited) {
+              setUserApiaryNumber(state => (
+                generateUserApiaryNumber(state)
+              ));
+            }
+          }
+
           return;
         }
 
         if (data.info) {
           setInfo(data.info);
+          setWarning('');
 
           if (!apiaryNumberEdited) {
             setUserApiaryNumber(state => (
@@ -171,7 +186,7 @@ export default function NewApiary() {
         <fieldset>
           <label>Nazwa</label>
           <Input
-            customStyle={{ width: '220px' }}
+            customStyle={nameInputStyle}
             onChangeHandler={nameHandler}
             value={apiaryName} />
           <ErrorDiv text={inputErrors.nameError} />

@@ -9,3 +9,29 @@
   color: orange;
   margin: 0 5px 0 5px;
 }
+
+.DatePicker {
+  width: 120px;
+  font-size: 18px;
+  color: rgb(189, 123, 0);
+  border: 3px solid orange;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px gray;
+  background-color: rgb(252, 250, 238);
+  text-align: center;
+}
+
+.DatePicker:hover {
+  background-color: rgb(255, 244, 172);
+}
+
+.DatePicker:focus {
+  outline: none;
+}
+
+@media (min-width: 700px) {
+  .DatePicker {
+    font-size: 20px;
+    width: 130px;
+  }
+}

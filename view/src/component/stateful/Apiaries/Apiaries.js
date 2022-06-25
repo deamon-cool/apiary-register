@@ -3,30 +3,36 @@ import { useEffect, useState } from 'react';
 import classes from './Apiaries.module.css';
 
 import { GET_APIARIES_FETCH_URL } from '../../../config/config';
+import Toastbar from '../../stateless/Toastbar/Toastbar';
 import Search from '../../stateless/Search/Search';
 import Button from '../../stateless/Button/Button';
 import DateRange from '../../stateless/DateRange/DateRange';
-import Toastbar from '../../stateless/Toastbar/Toastbar';
 import List from '../../stateless/List/List';
 import Apiary from '../../stateless/Apiary/Apiary';
 
-import getDateString from '../../../functions/getDateString';
-import validateDate from '../../../functions/validateDate';
+let searchStyle = { padding: '0 15px 0 15px' };
+let sortButtonStyle = { width: '200px', marginBottom: '10px' };
+let clearButtonStyle = { position: 'absolute', right: '0', width: '30px', padding: '0' };
+if (window.innerWidth > 700) {
+  sortButtonStyle.width = '250px';
+  searchStyle.padding = '0 35px 0 35px'
+  clearButtonStyle.width = '40px'
+}
 
 export default function Apiaries() {
   const [warning, setWarning] = useState('');
   const [info, setInfo] = useState('');
   const [sorting, setSorting] = useState('');
-  const [customDateRange, setCustomDateRange] = useState({
-    fromDate: 'YYYY-MM-DD',
-    toDate: 'YYYY-MM-DD'
+  const [dateRange, setDateRange] = useState({
+    startDate: new Date(),
+    endDate: new Date()
   });
   const [apiaries, setApiaries] = useState([]);
 
   useEffect(() => {
     const abortController = new AbortController();
 
-    async function fetchApiariesAmount() {
+    async function fetchApiaries() {
       const init = {
         method: 'GET',
         headers: {
@@ -43,6 +49,10 @@ export default function Apiaries() {
             return;
           }
 
+          if (data.apiaries.length === 0) {
+            setInfo('Brak listy pasiek do wyświetlenia.');
+          }
+
           setApiaries(data.apiaries);
         })
         .catch(err => {
@@ -51,7 +61,7 @@ export default function Apiaries() {
         })
     }
 
-    fetchApiariesAmount();
+    fetchApiaries();
 
     return () => {
       abortController.abort();
@@ -77,19 +87,33 @@ export default function Apiaries() {
     }
   };
 
-  const dateHandler = (name, value) => {
-    setCustomDateRange(state => ({
+  const startDateHandler = (date) => {
+    if (date > dateRange.endDate) {
+      setDateRange(state => ({
+        endDate: date,
+        startDate: date
+      }));
+    } else {
+      setDateRange(state => ({
+        ...state,
+        startDate: date
+      }));
+    }
+  };
+
+  const endDateHandler = (date) => {
+    setDateRange(state => ({
       ...state,
-      [name]: value
+      endDate: date
     }));
   };
 
   const clearSearchHandler = () => {
     setSorting('');
-    setCustomDateRange({
-      fromDate: 'YYYY-MM-DD',
-      toDate: 'YYYY-MM-DD'
-    })
+    setDateRange({
+      startDate: new Date(),
+      endDate: new Date()
+    });
   }
 
   let buttonSortText = 'Sortowanie nr pasiek: (kliknij)';
@@ -107,8 +131,20 @@ export default function Apiaries() {
   }
 
   let filteredApiaries = [...sortedApiaries];
+  if (dateRange.startDate < dateRange.endDate) {
+    filteredApiaries = filteredApiaries.filter(apiary => {
+      const apiaryDate = new Date(apiary.date);
 
-  const apiaryItems = sortedApiaries.map(apiary => {
+      if (apiaryDate >= dateRange.startDate &&
+        apiaryDate <= dateRange.endDate) {
+        return apiary;
+      }
+
+      return null;
+    });
+  }
+
+  const apiaryItems = filteredApiaries.map(apiary => {
     return <Apiary
       key={apiary._id}
       name={apiary.name}
@@ -125,19 +161,20 @@ export default function Apiaries() {
         warningTimePassedHandler={() => setWarning('')} />
       <h2>Lista pasiek</h2>
       <hr />
-      <Search customStyle={{ padding: '0 15px 0 15px' }}>
+      <Search customStyle={searchStyle}>
         <Button
           onClickHandler={sortHandler}
           text={buttonSortText}
-          customStyle={{ width: '200px', marginBottom: '5px' }} />
+          customStyle={sortButtonStyle} />
         <DateRange
-          onDateRangeHandler={dateHandler}
-          fromDate={customDateRange.fromDate}
-          toDate={customDateRange.toDate} />
+          startDate={dateRange.startDate}
+          onChangeStartDate={startDateHandler}
+          endDate={dateRange.endDate}
+          onChangeEndDate={endDateHandler} />
         <Button
           onClickHandler={clearSearchHandler}
           text='X'
-          customStyle={{ position: 'absolute', right: '0', width: '30px' }} />
+          customStyle={clearButtonStyle} />
       </Search>
       <List>
         {apiaryItems}
