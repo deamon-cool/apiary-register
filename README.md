@@ -1,9 +1,9 @@
 # apiary-register
-Apiary register app - allows to save apiary to database and view added apiaries with filtering and sorting
+Apiary register app - allows to save apiary to database and view added apiaries with filtering and sorting<br><br>
 
-PL
-Technology stack:
--node.js, express.js, mongoose, MongoDB, react.js, router
+PL<br>
+Technology stack:<br>
+-node.js, express.js, mongoose, MongoDB, react.js, router<br><br>
 
 jak uruchomić aplikację ? (chcesz uruchomić aplikację w środowisku developerskim ? -> informacje na samym dole)
 -UWAGA: potrzebujesz zainstalowanej na komputerze bazy danych MongoDB
